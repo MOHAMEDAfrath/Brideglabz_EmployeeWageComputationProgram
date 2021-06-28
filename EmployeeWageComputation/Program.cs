@@ -2,6 +2,9 @@
 
 namespace EmployeeWageComputation
 {
+    /// <summary>
+    /// UC4: To Solve using Switch Case statement.
+    /// </summary>
     class Program
     {
         public const int FULL_TIME = 1;
