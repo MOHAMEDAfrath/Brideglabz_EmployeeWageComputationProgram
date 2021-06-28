@@ -2,6 +2,9 @@
 
 namespace EmployeeWageComputation
 {
+    /// <summary>
+    /// UC2: To calculate daily employee wage by assuming wage per hour as 20 and working hour as 8.
+    /// </summary>
     class Program
     {
         public const int FULL_TIME = 1;
