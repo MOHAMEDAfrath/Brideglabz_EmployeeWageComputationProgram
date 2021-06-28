@@ -2,6 +2,9 @@
 
 namespace EmployeeWageComputation
 {
+    /// <summary>
+    /// UC1: To check whether employee is present or absent using random class
+    /// </summary>
     class Program
     {
         public const int FULL_TIME = 1;
