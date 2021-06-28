@@ -2,6 +2,9 @@
 
 namespace EmployeeWageComputation
 {
+    /// <summary>
+    /// UC6: To calculate wage till a maximum working day of 20 or maximum working hour of 100 is reached
+    /// </summary>
     class Program
     {
         public const int FULL_TIME = 1;
