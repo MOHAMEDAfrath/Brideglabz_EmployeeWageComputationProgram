@@ -2,6 +2,9 @@
 
 namespace EmployeeWageComputation
 {
+    /// <summary>
+    /// UC3: To Add part time employees and calculate wage.
+    /// </summary>
     class Program
     {
         public const int FULL_TIME = 1;
