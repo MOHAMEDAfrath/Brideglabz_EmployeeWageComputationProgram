@@ -14,20 +14,19 @@ namespace EmployeeWageComputation
             int empPerDayWage = 0;
             Random random = new Random();
             int employeeAttendance = random.Next(0, 3);
-            if(employeeAttendance == FULL_TIME)
+            switch(employeeAttendance)
             {
-                Console.WriteLine("Employee is Present.");
-                empHours = 8;
-            }
-            else if(employeeAttendance == PART_TIME)
-            {
-                Console.WriteLine("Employee is Present for Part Time.");
-                empHours = 4;
-
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent.");
+                case FULL_TIME:
+                    Console.WriteLine("Employee is Present.");
+                    empHours = 8;
+                    break;
+                case PART_TIME:
+                    Console.WriteLine("Employee is Present for Part Time.");
+                    empHours = 4;
+                    break;
+                default:
+                    Console.WriteLine("Employee is Absent.");
+                    break;
             }
             empPerDayWage = empHours * EMPLOYEE_WAGE_PER_HOUR;
             Console.WriteLine("Employee's per day wage is : " +empPerDayWage);
