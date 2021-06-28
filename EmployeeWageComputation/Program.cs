@@ -2,6 +2,9 @@
 
 namespace EmployeeWageComputation
 {
+    /// <summary>
+    /// UC5: To calculate wage for a month assuming working days as 20.
+    /// </summary>
     class Program
     {
         public const int FULL_TIME = 1;
