@@ -12,17 +12,16 @@ namespace EmployeeWageComputation
         public const int TOTAL_WORKING_DAY = 20;
         public const int EMPLOYEE_WAGE_PER_HOUR = 20;
         public const int EMPLOYEE_TOTAL_WORKING_HOUR = 100;
-        static void Main(string[] args)
+        public static void ComputeWage()
         {
-            Console.WriteLine("Welcome to Employee Wage Computation Program!");
             int empHours = 0;
             int empTotalWorkingday = 1;
             int empTotalWorkingHour = 0;
             int empPerDayWage = 0;
-            int empTotalWage = 0; 
+            int empTotalWage = 0;
             Random random = new Random();
-            while(empTotalWorkingday <= TOTAL_WORKING_DAY && empTotalWorkingHour <= EMPLOYEE_TOTAL_WORKING_HOUR )
-            { 
+            while (empTotalWorkingday <= TOTAL_WORKING_DAY && empTotalWorkingHour <= EMPLOYEE_TOTAL_WORKING_HOUR)
+            {
                 int employeeAttendance = random.Next(0, 3);
                 switch (employeeAttendance)
                 {
@@ -44,10 +43,17 @@ namespace EmployeeWageComputation
                 }
                 empTotalWorkingHour += empHours;
             }
-            Console.WriteLine("Employee's wage for Working Hour : " +empTotalWorkingday+ " and Working Hour : "+empTotalWorkingHour+ " is "+empTotalWage);
-            
-            
+            Console.WriteLine("Employee's wage for Working Hour : " + empTotalWorkingday + " and Working Hour : " + empTotalWorkingHour + " is " + empTotalWage);
 
+
+
+
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to Employee Wage Computation Program!");
+            ComputeWage();
+            
         }
     }
 }
