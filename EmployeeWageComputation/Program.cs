@@ -4,15 +4,14 @@ namespace EmployeeWageComputation
 {
     /// <summary>
     /// UC6: To calculate wage till a maximum working day of 20 or maximum working hour of 100 is reached
+    /// UC7: static method is added 
+    /// UC8: Multiple company wages are calculated using methods.
     /// </summary>
     class Program
     {
         public const int FULL_TIME = 1;
         public const int PART_TIME = 2;
-        public const int TOTAL_WORKING_DAY = 20;
-        public const int EMPLOYEE_WAGE_PER_HOUR = 20;
-        public const int EMPLOYEE_TOTAL_WORKING_HOUR = 100;
-        public static void ComputeWage()
+        public static void ComputeWage(string companyName,int empRatePerHour, int noOfworkingDays,int maxHours )
         {
             int empHours = 0;
             int empTotalWorkingday = 1;
@@ -20,7 +19,7 @@ namespace EmployeeWageComputation
             int empPerDayWage = 0;
             int empTotalWage = 0;
             Random random = new Random();
-            while (empTotalWorkingday <= TOTAL_WORKING_DAY && empTotalWorkingHour <= EMPLOYEE_TOTAL_WORKING_HOUR)
+            while (empTotalWorkingday < noOfworkingDays && empTotalWorkingHour <= maxHours)
             {
                 int employeeAttendance = random.Next(0, 3);
                 switch (employeeAttendance)
@@ -35,7 +34,7 @@ namespace EmployeeWageComputation
                         empHours = 0;
                         break;
                 }
-                empPerDayWage = empHours * EMPLOYEE_WAGE_PER_HOUR;
+                empPerDayWage = empHours * empRatePerHour;
                 empTotalWage += empPerDayWage;
                 if (employeeAttendance > 0)
                 {
@@ -43,7 +42,7 @@ namespace EmployeeWageComputation
                 }
                 empTotalWorkingHour += empHours;
             }
-            Console.WriteLine("Employee's wage for Working Hour : " + empTotalWorkingday + " and Working Hour : " + empTotalWorkingHour + " is " + empTotalWage);
+            Console.WriteLine("Employee's wage for Working in "+companyName+" for days : " + empTotalWorkingday + " and Working Hour : " + empTotalWorkingHour + " is " + empTotalWage);
 
 
 
@@ -52,8 +51,9 @@ namespace EmployeeWageComputation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program!");
-            ComputeWage();
-            
+            ComputeWage("Honda",20,40,100);
+            ComputeWage("Micromax", 10, 40, 200);
+
         }
     }
 }
