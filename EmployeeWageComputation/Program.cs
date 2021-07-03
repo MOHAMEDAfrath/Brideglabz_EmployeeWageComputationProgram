@@ -18,6 +18,7 @@ namespace EmployeeWageComputation
             employee.addCompanyEmpWage("Micromax", 20, 10, 100);
             employee.addCompanyEmpWage("Nokia", 20, 20, 100);
             employee.computeEmpWage();
+            Console.WriteLine("Micromax:"+employee.getTotaWage("Micromax"));
 
         }
     }

@@ -6,31 +6,37 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageComputation
 {
-    class EmployeeArray
+    public class EmployeeArray: ICompanyEmpWage
     {
         public const int FULL_TIME = 1;
         public const int PART_TIME = 2;
         public int noOfCompany = 0;
-        public CompanyEmpWage[] companyEmpWages;
+        private LinkedList<CompanyEmpWage> companyEmpList;
+        private Dictionary<string, CompanyEmpWage> companyandempwage;
+
+        internal LinkedList<CompanyEmpWage> CompanyEmpList { get => companyEmpList; set => companyEmpList = value; }
+
         public EmployeeArray()
         {
-            this.companyEmpWages = new CompanyEmpWage[6];
+            this.CompanyEmpList = new LinkedList<CompanyEmpWage>();
+            this.companyandempwage = new Dictionary<string, CompanyEmpWage>();
         }
         public void addCompanyEmpWage(string companyName, int empRatePerHour, int noOfworkingDays, int maxHours)
         {
-            companyEmpWages[this.noOfCompany] = new CompanyEmpWage(companyName, empRatePerHour, noOfworkingDays, maxHours);
-            noOfCompany++;
+            CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, empRatePerHour, noOfworkingDays, maxHours);
+            this.CompanyEmpList.AddLast(companyEmpWage);
+            this.companyandempwage.Add(companyName, companyEmpWage);
         }
         public void computeEmpWage()
         {
-            for(int i = 0; i < noOfCompany; i++)
+            foreach(CompanyEmpWage company in this.CompanyEmpList)
             {
-                companyEmpWages[i].setTotalEmpWage(this.computeEmpWage(this.companyEmpWages[i]));
-                Console.WriteLine(this.companyEmpWages[i].toString());
-
+                company.setTotalEmpWage(this.computeEmpWage(company));
+                Console.WriteLine(company.toString());
             }
+            
         }
-        public int computeEmpWage(CompanyEmpWage companyEmpWage)
+        private int computeEmpWage(CompanyEmpWage companyEmpWage)
         {
             int emphrs = 0, totEmpHrs = 0, totalworkingdays = 0;
             
@@ -60,6 +66,16 @@ namespace EmployeeWageComputation
 
 
 
+        }
+
+        public int getTotalWage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int getTotaWage(string company)
+        {
+            return this.companyandempwage[company].totalempwage;
         }
     }
 }
