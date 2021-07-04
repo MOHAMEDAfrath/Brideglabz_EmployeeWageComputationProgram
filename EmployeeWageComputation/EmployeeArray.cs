@@ -68,10 +68,7 @@ namespace EmployeeWageComputation
 
         }
 
-        public int getTotalWage()
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public int getTotaWage(string company)
         {
