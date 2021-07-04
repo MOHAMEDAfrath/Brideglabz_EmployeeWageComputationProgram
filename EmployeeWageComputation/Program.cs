@@ -7,6 +7,7 @@ namespace EmployeeWageComputation
     /// UC7: static method is added 
     /// UC8: Multiple company wages are calculated using methods.
     /// UC9: Saved the wages with constructors and objects.
+    /// Final Solution: Refactored the code with Interface Approach.
     /// </summary>
     class Program
     {
